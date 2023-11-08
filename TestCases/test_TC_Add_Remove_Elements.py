@@ -1,8 +1,17 @@
 import pytest
 from selenium.webdriver.common.by import By
-from POM import AddRemoveElementsPage
+
 from BaseFiles import startBrowser
 from Library import ConfigHandler
+from POM import AddRemoveElementsPage
+
+
+@pytest.fixture()
+def prepareEnv():
+    global driver, testPage
+    driver = startBrowser.startBrowser("AddRemoveElements", "url")
+    testPage = AddRemoveElementsPage.AddRemoveElementsClass(driver)
+
 
 """
     Scenario: Add new element
@@ -13,11 +22,10 @@ from Library import ConfigHandler
 """
 
 
-def test_Add_New_Element():
-    driver = startBrowser.startBrowser("AddRemoveElements", "url")
-    testPage = AddRemoveElementsPage.AddRemoveElementsClass(driver)
+def test_Add_New_Element(prepareEnv):
     testPage.add_new_element()
-    added_element = testPage.delete_element()
+    added_element = \
+    driver.find_elements(By.XPATH, ConfigHandler.readElementsData("AddRemoveElements", "div_withNewElements"))[0]
     assert added_element.is_displayed()
     assert added_element.text == "Delete"
     driver.close()
@@ -31,13 +39,12 @@ def test_Add_New_Element():
 
 """
 
-'''
-def test_Add_Multiple_Elemets(returnSection):
-    driver = startBrowser.startBrowser(section_name, "url")
-    for i in range(0,3):
-        driver.find_element(By.XPATH, new_element).click()
 
-    div_elements = driver.find_elements(By.XPATH, div_element)
+def test_Add_Multiple_Elemets(prepareEnv):
+    for i in range(0, 3):
+        testPage.add_new_element()
+    div_elements = driver.find_elements(By.XPATH,
+                                        ConfigHandler.readElementsData("AddRemoveElements", "div_withNewElements"))
 
     for element in div_elements:
         assert element.is_displayed()
@@ -54,14 +61,12 @@ def test_Add_Multiple_Elemets(returnSection):
     """
 
 
-def test_Add_Delete_Element(returnSection):
-    driver = startBrowser.startBrowser(section_name, "url")
-    driver.find_element(By.XPATH, new_element).click()
-
-    driver.find_element(By.XPATH, div_element).click()
+def test_Add_Delete_Element(prepareEnv):
+    testPage.add_new_element()
+    testPage.delete_elements()
 
     try:
-        driver.find_element(By.XPATH)
+        driver.find_element(By.XPATH, ConfigHandler.readElementsData("AddRemoveElements", "div_withNewElements"))
     except:
         assert True
 
@@ -76,10 +81,13 @@ def test_Add_Delete_Element(returnSection):
     """
 
 
-def test_Add_Delete_Multiple_Elemets(returnSection):
-    driver = startBrowser.startBrowser(section_name, "url")
-    for i in range
-    driver.find_element(By.XPATH, new_element).click()
-    driver.find_element(By.XPATH, new_element).click()
-    driver.find_element(By.XPATH, new_element).click()
-'''
+def test_Add_Delete_Multiple_Elemets(prepareEnv):
+    for i in range(0, 3):
+        testPage.add_new_element()
+
+    testPage.delete_elements()
+
+    try:
+        driver.find_element(By.XPATH, ConfigHandler.readElementsData("AddRemoveElements", "div_withNewElements"))
+    except:
+        assert True
