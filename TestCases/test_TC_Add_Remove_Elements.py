@@ -25,7 +25,7 @@ def prepareEnv():
 def test_Add_New_Element(prepareEnv):
     testPage.add_new_element()
     added_element = \
-    driver.find_elements(By.XPATH, ConfigHandler.readElementsData("AddRemoveElements", "div_withNewElements"))[0]
+        driver.find_elements(By.XPATH, ConfigHandler.readElementsData("AddRemoveElements", "div_withNewElements"))[0]
     assert added_element.is_displayed()
     assert added_element.text == "Delete"
     driver.close()

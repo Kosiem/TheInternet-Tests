@@ -1,15 +1,18 @@
+
+# Tests Copied from test_TC_Basic_Auth
+
 import pytest
 
 from BaseFiles import startBrowser
 from Library import DataGenerator
-from POM import BasicAuthPage
+from POM import DigestAuthPage
 
 
 @pytest.fixture()
 def prepareEnv():
     global testPage, driver
     driver = startBrowser.startBrowserOnly()
-    testPage = BasicAuthPage.BasicAuthClass(driver)
+    testPage = DigestAuthPage.DigestAuthClass(driver)
     yield
     driver.close()
 
