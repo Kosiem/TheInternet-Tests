@@ -7,8 +7,10 @@ def prepareEnv():
     global driver, testPage
     driver = startBrowser.startBrowser("DragAndDrop", "url")
     testPage = DragAndDropPage.DragAndDropClass(driver)
+    driver.maximize_window()
     yield
     driver.close()
+
 
 """
     <test_Move_A_To_B>

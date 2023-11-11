@@ -5,3 +5,4 @@ from . import test_TC_Checkboxes
 from . import test_TC_ContextMenu
 from . import test_TC_DigestAuth
 from . import test_TC_DragAndDrop
+from . import test_TC_Dropdown_List

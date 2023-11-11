@@ -1,1 +1,8 @@
 ADD/REMOVE elements
+BasicAuth
+ChallengingDOM
+CheckBoxes
+ContextMenu
+DigestAuth
+DragAndDrop
+DynamicControls

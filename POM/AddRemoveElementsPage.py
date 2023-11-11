@@ -13,8 +13,9 @@ class AddRemoveElementsClass:
         add.click()
         return add
 
-    def delete_element(self):
-        elements = driver.find_elements(By.XPATH, ConfigHandler.readElementsData("AddRemoveElements", "div_element"))
+    def delete_elements(self):
+        elements = driver.find_elements(By.XPATH,
+                                        ConfigHandler.readElementsData("AddRemoveElements", "div_withNewElements"))
         for element in elements:
             element.click()
 
