@@ -6,3 +6,10 @@ from . import test_TC_ContextMenu
 from . import test_TC_DigestAuth
 from . import test_TC_DragAndDrop
 from . import test_TC_Dropdown_List
+from . import test_TC_Dynamic_Controls
+from . import test_TC_Entry_Ad
+from . import test_TC_File_Download
+from . import test_TC_File_Upload
+from . import test_TC_Form_Auth
+from . import test_TC_Horizontal_Slider
+from . import test_TC_Hovers
