@@ -13,3 +13,7 @@ from . import test_TC_File_Upload
 from . import test_TC_Form_Auth
 from . import test_TC_Horizontal_Slider
 from . import test_TC_Hovers
+from . import test_TC_JavaScript_Alerts
+from . import test_TC_JQuery
+from . import test_TC_Key_Presses
+from . import test_TC_Status_Codes
