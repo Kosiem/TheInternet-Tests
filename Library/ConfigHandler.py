@@ -5,7 +5,7 @@ import configparser
 
 def readElementsData(section, key):
     config = configparser.ConfigParser()
-    config.read("..\\Configs\\ElementsConfig.cfg")
+    config.read("C:\\Users\\Patryk\\PycharmProjects\\The-Internet-Tests\\Configs\\ElementsConfig.cfg")
     return config.get(section, key)
 
 def readUserBrowser():
