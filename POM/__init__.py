@@ -11,3 +11,9 @@ from . import EntryAdPage
 from . import FileDownloadPage
 from . import FileUploadPage
 from . import FormAuthPage
+from . import HorizontalSliderPage
+from . import HoversPage
+from . import JQueryPage
+from . import JavaScriptAlertsPage
+from . import KeyPressesPage
+from . import StatusCodesPage

@@ -6,3 +6,12 @@ ContextMenu
 DigestAuth
 DragAndDrop
 DynamicControls
+EntryAD
+FileDownload
+FileUpload
+FormAuth
+HorizontalSlider
+Hovers
+JQueryUI
+JSalert
+KeyPresses
